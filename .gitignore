@@ -1,3 +1,12 @@
+
+client/records_train.csv
+client/records_train2.csv
+client/records_val.csv
+client/records_val2.csv
+
+server/records_test.csv
+
+
 env1/
 
 # Byte-compiled / optimized / DLL files
