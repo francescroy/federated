@@ -1,5 +1,6 @@
 import asyncio
 import os
+import time
 
 from flask import (
     Flask, Response, request, render_template
@@ -35,8 +36,18 @@ def create_app(test_config=None):
     @app.route('/training', methods=['POST'])
     def training():
         print('Request POST /training')
-        training_type = request.json['training_type']
-        asyncio.run(server.start_training(training_type))
+        #training_type = request.json['training_type']
+        training_type = 'AUTO_ENCODER'
+        
+        round_number=0
+        convergence = False
+        while convergence == False:
+
+            asyncio.run(server.start_training(training_type))
+            time.sleep(7)
+            convergence = server.checkConvergence(round_number)
+            round_number = round_number+1
+         
         return Response(status=200)
 
     @app.route('/client', methods=['POST'])
