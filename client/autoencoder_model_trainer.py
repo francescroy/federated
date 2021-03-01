@@ -60,9 +60,11 @@ class AutoencoderModelTrainer:
 
     def train_model(self):
        
+        port_number = environ.get('CLIENT_URL').split(":")[2]
+       
         #supposing that we already have a csv with preprocesed records...
-        normal_X_train = pd.read_csv(self.current_directory + "/" + environ.get('CLIENT_URL') + "_train.csv")
-        normal_X_val = pd.read_csv(self.current_directory + "/" + environ.get('CLIENT_URL') + "_val.csv")
+        normal_X_train = pd.read_csv(self.current_directory + "/" + port_number + "_train.csv")
+        normal_X_val = pd.read_csv(self.current_directory + "/" + port_number + "_val.csv")
     
         #scaler = StandardScaler()
         #normal_X_train = scaler.fit_transform(normal_X_train)
