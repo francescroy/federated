@@ -177,11 +177,8 @@ class Server:
         test_loss = model.computeLoss(normal_X_test)
         
         print("\n\n\n\n\n\n\n")
-        
         print("Round number {}.".format(round_number))
-        
         print("Test loss {}.".format(test_loss))
-        
         print("\n\n\n\n\n\n\n")
         
         
@@ -189,7 +186,6 @@ class Server:
 
             self.last_test_lost = test_loss
             return True
-
 
         self.last_test_lost = test_loss
         return False

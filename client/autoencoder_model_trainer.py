@@ -60,17 +60,10 @@ class AutoencoderModelTrainer:
 
     def train_model(self):
        
-        normal_X_train = None
-        normal_X_val = None
-        
-        if environ.get('CLIENT_URL') == 'http://localhost:5001':
-            #supposing that we already have a csv with preprocesed records...
-            normal_X_train = pd.read_csv(self.current_directory+"/records_train.csv")
-            normal_X_val = pd.read_csv(self.current_directory+"/records_val.csv")
-        elif environ.get('CLIENT_URL') == 'http://localhost:5002' :
-            normal_X_train = pd.read_csv(self.current_directory+"/records_train2.csv")
-            normal_X_val = pd.read_csv(self.current_directory+"/records_val2.csv")
- 
+        #supposing that we already have a csv with preprocesed records...
+        normal_X_train = pd.read_csv(self.current_directory + "/" + environ.get('CLIENT_URL') + "_train.csv")
+        normal_X_val = pd.read_csv(self.current_directory + "/" + environ.get('CLIENT_URL') + "_val.csv")
+    
         #scaler = StandardScaler()
         #normal_X_train = scaler.fit_transform(normal_X_train)
         #normal_X_val = scaler.transform(normal_X_val)
