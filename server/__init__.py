@@ -44,7 +44,7 @@ def create_app(test_config=None):
         while convergence == False:
 
             asyncio.run(server.start_training(training_type))
-            time.sleep(7)
+            time.sleep(5)
             convergence = server.checkConvergence(round_number)
             round_number = round_number+1
          
